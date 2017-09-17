@@ -1,0 +1,81 @@
+buildscript {
+    repositories {
+        mavenCentral()
+/*        maven {
+            url 'http://repo1.maven.org/maven2'
+        }*/
+    }
+    dependencies {
+
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        // Basic
+        classpath("javax.servlet:jstl:1.2")
+        //classpath("junit:junit:4.4")
+        // JDBC
+        //classpath("mysql:mysql-connector-java:5.1.39")
+        // Spring
+        classpath("org.springframework:spring-webmvc:${springVersion}")
+        classpath("org.springframework:spring-core:${springVersion}")
+        //classpath("org.springframework:spring-aspects:${springVersion}")
+        classpath("org.springframework:spring-beans:${springVersion}")
+        classpath("org.springframework:spring-context:${springVersion}")
+        //classpath("org.springframework:spring-context-support:${springVersion}")
+        //classpath("org.springframework:spring-expression:${springVersion}")
+        //classpath("org.springframework:spring-jdbc:${springVersion}")
+        //classpath("org.springframework:spring-jms:${springVersion}")
+        //classpath("org.springframework:spring-messaging:${springVersion}")
+        //classpath("org.springframework:spring-orm:${springVersion}")
+        classpath("org.springframework:spring-tx:${springVersion}")
+       // classpath("org.springframework:spring-oxm:${springVersion}")
+       // classpath("org.springframework:spring-instrument:${springVersion}")
+        //classpath("org.springframework:spring-aop:${springVersion}")
+        //classpath("org.springframework:spring-web:${springVersion}")
+        //classpath("org.springframework:spring-test:${springVersion}")
+        // Spring Boot
+        classpath("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+        //classpath("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}")
+        //classpath("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot:${springBootVersion}")
+       // classpath("org.springframework.boot:spring-boot-actuator:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-devtools:${springBootVersion}")
+        //classpath("org.springframework.boot:spring-boot-starter-security:${springBootVersion}")
+        //classpath("org.springframework.boot:spring-boot-starter-websocket:${springBootVersion}")
+        //classpath("org.springframework.boot:spring-boot-starter-mail:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-starter-log4j2:${springBootVersion}")
+        //classpath("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // Base
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.apache.tomcat.embed:tomcat-embed-jasper')
+    compile('javax.servlet:jstl')
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.39'
+    // JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    // CSS,FONT,JS,.
+    compile group: 'org.webjars', name: 'bootstrap', version: '3.3.7'
+    compile group: 'org.webjars', name: 'jquery', version: '3.2.1'
+    compile group: 'org.webjars', name: 'font-awesome', version: '4.7.0'
+}

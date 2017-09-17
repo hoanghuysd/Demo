@@ -15,9 +15,6 @@ import java.util.Arrays;
 @SpringBootApplication
 public class SpringbootApplication extends SpringBootServletInitializer /*implements CommandLineRunner */{
 
-    //@Autowired
-    //private ApplicationContext appContext;
-
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return configureApplication(builder);
@@ -39,14 +36,4 @@ public class SpringbootApplication extends SpringBootServletInitializer /*implem
                 .sources(SpringbootApplication.class);
     }
 
-    /*@Override
-    public void run(String... args) throws Exception {
-
-        String[] beans = appContext.getBeanDefinitionNames();
-        Arrays.sort(beans);
-        for (String bean : beans) {
-            System.out.println(bean);
-        }
-
-    }*/
 }

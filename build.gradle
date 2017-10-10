@@ -8,11 +8,6 @@ buildscript {
     dependencies {
 
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        // Basic
-        classpath("javax.servlet:jstl:1.2")
-        //classpath("junit:junit:4.4")
-        // JDBC
-        //classpath("mysql:mysql-connector-java:5.1.39")
         // Spring
         classpath("org.springframework:spring-webmvc:${springVersion}")
         classpath("org.springframework:spring-core:${springVersion}")
@@ -33,7 +28,7 @@ buildscript {
         //classpath("org.springframework:spring-test:${springVersion}")
         // Spring Boot
         classpath("org.springframework.boot:spring-boot-starter:${springBootVersion}")
-        //classpath("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+        classpath("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
         classpath("org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}")
         classpath("org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}")
         //classpath("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
@@ -52,10 +47,10 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'war'
+//apply plugin: 'war'
 apply plugin: 'org.springframework.boot'
 
-version = '0.0.1-SNAPSHOT'
+version = '1.2'
 sourceCompatibility = 1.8
 
 repositories {
@@ -67,13 +62,22 @@ dependencies {
     // Base
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.apache.tomcat.embed:tomcat-embed-jasper')
-    compile('javax.servlet:jstl')
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
-    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.39'
+    compile group: 'mysql', name: 'mysql-connector-java', version: mysqlVersion
     // JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: springBootVersion
+    //
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:springBootVersion
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
+    //compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version:springBootVersion
+    // https://mvnrepository.com/artifact/org.springframework.session/spring-session
+    //compile group: 'org.springframework.session', name: 'spring-session', version: '1.0.0.RELEASE'
+
+
     //testCompile('org.springframework.boot:spring-boot-starter-test')
 
+    
     // CSS,FONT,JS,.
     compile group: 'org.webjars', name: 'bootstrap', version: '3.3.7'
     compile group: 'org.webjars', name: 'jquery', version: '3.2.1'
